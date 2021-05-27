@@ -1,8 +1,12 @@
 package routes
 
 import (
+	"go_eden/dao"
+	"go_eden/service"
+	"go_eden/web/controllers"
+
 	"github.com/kataras/golog"
-	"github.com/kataras/iris/v12/v12/v12/mvc"
+	"github.com/kataras/iris/v12/mvc"
 )
 
 ///
@@ -34,29 +38,11 @@ func AdminRoute(app *mvc.Application) {
 
 	// //casbin middleware
 	// menu := wbd.Party("/cms/menu", casbinMiddleware.ServeHTTP)
-	// configDao := dao.NewConfigDao(db)
-	// configService := service.NewConfigService(configDao)
-	// menu.Register(configService)
-	// menu.Handle(new(controllers.MenuController))
-
-	// 课程
-	// /wbd/cms/course/
-
-	//发布管理
-	///wbd/cms/publish/
-
-	///教师管理
-	////wbd/cms/tec/
-	///机构管理
-	////wbd/cms/org/
-	///推广管理
-	////wbd/cms/recomand/
-	///教务在线
-	////wbd/cms/feature/
-	///审核管理
-	// /wbd/cms/check/
-	///权限管理
-	////wbd/cms/rule/
+	login := app.Party("/auth")
+	loginDao := dao.NewLoginDao()
+	loginService := service.NewLoginService(loginDao)
+	login.Register(loginService)
+	login.Handle(new(controllers.LoginController))
 	///
 	// rule := wbd.Party("/cms/rule")
 	///rule

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"go_eden/model"
+	"go_eden/routes"
 	"time"
 
 	"go_eden/web/controllers"
@@ -117,18 +118,6 @@ func newApp() *iris.Application {
 		ctx.Writef(toJSON(response))
 
 	})
-	// readOnlyRoute := app.GetRoutesReadOnly()
-	// for _, r := range readOnlyRoute {
-
-	// 	golog.Info("router-MainHandlerName=", r.MainHandlerName())
-	// 	golog.Info("router-Name=", r.Name())
-	// 	golog.Info("router-Path=", r.Path())
-	// 	golog.Info("router-Path=", r.Method())
-	// 	golog.Info("router-Path=", r.String())
-
-	// }
-	///
-	// myApp.CreateRoutes(app)
 
 	return app
 }
@@ -146,15 +135,8 @@ func configureMvc(app *mvc.Application) {
 	//root /
 	root := app.Party("/")
 	root.Handle(new(controllers.RootController))
-	//admin
-	// routes.AdminRoute(app)
-	// adminApp := app.Party("/admin")
-
-	// adminApp.Handle(new(controllers.AdminUserController))
-
-	//config
-	// config := app.Party("/config")
-	// config.Handle(new(controllers.ConfigController))
+	//login
+	routes.AdminRoute(app)
 
 }
 func toJSON(obj interface{}) string {
