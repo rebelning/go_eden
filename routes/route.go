@@ -32,13 +32,13 @@ func AdminRoute(app *mvc.Application) {
 	// db := conn.MasterEngine()
 	// adminDao := dao.NewAdminUserDao(nil)
 	// adminService := service.NewAdminUserService(adminDao)
-	// //wbd service
-	// wbd := app.Party("/wbd")
+	// //eden service
+	eden := app.Party("/eden")
 	// ///
 
 	// //casbin middleware
 	// menu := wbd.Party("/cms/menu", casbinMiddleware.ServeHTTP)
-	login := app.Party("/auth")
+	login := eden.Party("/auth")
 	loginDao := dao.NewLoginDao()
 	loginService := service.NewLoginService(loginDao)
 	login.Register(loginService)

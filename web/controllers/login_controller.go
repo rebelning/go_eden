@@ -24,7 +24,7 @@ func (lc LoginController) PostLogin() mvc.Result {
 	validate.RegisterStructValidation(LoginStructLevelValidation, model.LoginInfo{})
 	response, err := baseNewValidate(lc.Ctx, &loginInfo, validate)
 	if err != nil {
-		return mvc.Response{Code: iris.StatusOK, Object: response}
+		return mvc.Response{Code: iris.StatusCreated, Object: response}
 	}
 	resp := lc.Service.GetLogin(loginInfo.Username, loginInfo.Password)
 	response.ResCode = resp.ResCode
