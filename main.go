@@ -15,7 +15,6 @@ import (
 	"github.com/kataras/iris/v12/middleware/logger"
 	"github.com/kataras/iris/v12/middleware/recover"
 	"github.com/kataras/iris/v12/mvc"
-	"github.com/kataras/iris/v12/sessions"
 )
 
 func main() {
@@ -42,25 +41,27 @@ func newApp() *iris.Application {
 
 	app.Use(logger.New())
 	//session
-	sess := sessions.New(sessions.Config{
-		// Cookie string, the session's client cookie name, for example: "mysessionid"
-		//
-		// Defaults to "irissessionid"
-		Cookie: "token",
-		// it's time.Duration, from the time cookie is created, how long it can be alive?
-		// 0 means no expire.
-		// -1 means expire when browser closes
-		// or set a value, like 2 hours:
-		Expires: time.Hour * 2,
-		// if you want to invalid cookies on different subdomains
-		// of the same host, then enable it.
-		// Defaults to false.
-		DisableSubdomainPersistence: false,
-	})
+	// sess := sessions.New(sessions.Config{
+	// 	// Cookie string, the session's client cookie name, for example: "mysessionid"
+	// 	//
+	// 	// Defaults to "irissessionid"
+	// 	Cookie: "token",
+	// 	// it's time.Duration, from the time cookie is created, how long it can be alive?
+	// 	// 0 means no expire.
+	// 	// -1 means expire when browser closes
+	// 	// or set a value, like 2 hours:
+	// 	Expires: time.Hour * 2,
+	// 	// if you want to invalid cookies on different subdomains
+	// 	// of the same host, then enable it.
+	// 	// Defaults to false.
+	// 	DisableSubdomainPersistence: false,
+	// })
 
-	app.Use(sess.Handler()) //// session is always non-nil inside handlers now.
+	// app.Use(sess.Handler()) //// session is always non-nil inside handlers now.
 	// app.Use(casbinMiddleware.ServeHTTP)
 	//控制器根路由路径"/"
+
+	//
 	mvc.Configure(app, configureMvc)
 
 	//logger
@@ -132,11 +133,10 @@ func configure(app *iris.Application) {
 ///config mvc
 func configureMvc(app *mvc.Application) {
 	//mvc controller
-	//root /
 	root := app.Party("/")
 	root.Handle(new(controllers.RootController))
 	//login
-	routes.AdminRoute(app)
+	routes.Route(app)
 
 }
 func toJSON(obj interface{}) string {

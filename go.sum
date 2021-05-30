@@ -71,6 +71,7 @@ github.com/dgraph-io/badger/v2 v2.0.3/go.mod h1:3KY8+bsP8wI0OEnQJAKpd4wIJW/Mm32y
 github.com/dgraph-io/badger/v2 v2.2007.2/go.mod h1:26P/7fbL4kUZVEVKLAKXkBXKOydDmM2p1e+NhhnBCAE=
 github.com/dgraph-io/ristretto v0.0.2-0.20200115201040-8f368f2f2ab3/go.mod h1:KPxhHT9ZxKefz+PCeOGsrHpl1qZ7i70dGTu2u+Ahh6E=
 github.com/dgraph-io/ristretto v0.0.3-0.20200630154024-f66de99634de/go.mod h1:KPxhHT9ZxKefz+PCeOGsrHpl1qZ7i70dGTu2u+Ahh6E=
+github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/dgryski/go-farm v0.0.0-20190423205320-6a90982ecee2/go.mod h1:SqUrOPUnsFjfmXRMNPybcSiG0BgUW2AuFH8PAnS2iTw=
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f/go.mod h1:cuUVRXasLTGF7a8hSLbxyZXjz+1KgoB3wDUb6vlszIc=
@@ -203,6 +204,7 @@ github.com/iris-contrib/middleware v12.1.2+incompatible h1:c1cZShMYVo3qlprxmNvid
 github.com/iris-contrib/middleware/casbin v0.0.0-20191219204441-78279b78a367/go.mod h1:oThCacwA8OMqXA5RUVxFHqk7lsb3NfJA2fB0Z5eiNAI=
 github.com/iris-contrib/middleware/casbin v0.0.0-20210110101738-6d0a4d799b5d h1:Xl5MGjBSuiIgtW6draXbfmiK7gJW4tafBxUXhf/pUFk=
 github.com/iris-contrib/middleware/casbin v0.0.0-20210110101738-6d0a4d799b5d/go.mod h1:swzBy+AsD5URTO+TptZiC3LgZgURtUZ3M+n3XVxFlG8=
+github.com/iris-contrib/middleware/jwt v0.0.0-20191219204441-78279b78a367 h1:3jSxvUkS5gBMQQhe/TB1Musi6O8QcrBlUfEUAEc8XoU=
 github.com/iris-contrib/middleware/jwt v0.0.0-20191219204441-78279b78a367/go.mod h1:Vac9OVWLTCyUwkO/InJK92Y0jqkT/ryvTSAor5v13s4=
 github.com/iris-contrib/pongo2 v0.0.1 h1:zGP7pW51oi5eQZMIlGA3I+FHY9/HOQWDB+572yin0to=
 github.com/iris-contrib/pongo2 v0.0.1/go.mod h1:Ssh+00+3GAZqSQb30AvBRNxBx7rf0GqwkjqxNd0u65g=

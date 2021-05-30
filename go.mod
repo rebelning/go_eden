@@ -10,6 +10,7 @@ require (
 	// github.com/casbin/casbin v1.9.1
 	github.com/casbin/casbin/v2 v2.7.2
 	github.com/dgraph-io/badger/v2 v2.0.3 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fasthttp-contrib/websocket v0.0.0-20160511215533-1f3b11f56072 // indirect
 	github.com/flosch/pongo2 v0.0.0-20200529170236-5abacdfa4915 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect

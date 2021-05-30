@@ -14,5 +14,5 @@ func (root RootController) Get(ctx iris.Context) mvc.Result {
 
 	return mvc.Response{
 		ContentType: "text/html",
-		Text:        "<h1>Welcome</h1>"}
+		Text:        "<h1>welcome</h1>"}
 }
