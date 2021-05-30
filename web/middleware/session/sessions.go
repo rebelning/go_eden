@@ -1,6 +1,6 @@
 package session
 
-import "github.com/kataras/iris/v12/v12/v12/sessions"
+import "github.com/kataras/iris/v12/sessions"
 
 var (
 	cookieNameForSessionID = "mycookiesessionnameid"
