@@ -3,10 +3,7 @@ package controllers
 import (
 	"go_eden/model"
 	"go_eden/service"
-	"time"
 
-	"github.com/dgrijalva/jwt-go"
-	"github.com/kataras/golog"
 	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/mvc"
@@ -38,12 +35,6 @@ func (lc LoginController) PostLogin() mvc.Result {
 	response.ResCode = resp.ResCode
 	response.Message = resp.Message
 	response.Data = resp.Data
-	token := cToken(loginInfo.Username, loginInfo.Password)
-	//header["Authorization"] = "bears "+tokenString
-	lc.Ctx.Header("Authorization", "bears "+token)
-	// lc.Ctx.SetCookieKV(USERNAME, token)
-	// lc.Ctx.Request().Cookie(USERNAME)
-	golog.Debug("token=" + token)
 
 	return mvc.Response{Code: iris.StatusOK, Object: response}
 }
@@ -57,17 +48,4 @@ func LoginStructLevelValidation(sl validator.StructLevel) {
 		sl.ReportError(user.Password, "Password", "Password", "Password", "")
 	}
 
-}
-func cToken(username string, password string) string {
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"username": username,
-		"password": password,
-		"iss":      "eden",                                                   //issuer
-		"iat":      time.Now().Unix(),                                        //Issued At
-		"jti":      "9527",                                                   //JWT ID
-		"exp":      time.Now().Add(10 * time.Hour * time.Duration(1)).Unix(), //expiration time)
-	})
-	tokenString, _ := token.SignedString([]byte("Secret"))
-
-	return tokenString
 }

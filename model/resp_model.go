@@ -1,9 +1,10 @@
 package model
 
 type UserInfo struct {
-	UserId   int
-	Username string
-	Mobile   string
-	Address  string
-	Password string
+	UserId      string
+	Username    string
+	Mobile      string
+	Address     string
+	Password    string `json:"-"`
+	AccessToken string
 }

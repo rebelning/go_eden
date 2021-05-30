@@ -17,7 +17,7 @@ func NewLoginDao() LoginDao {
 func (login loginDao) GetLogin(username string) model.UserInfo {
 	///query db
 	// var u  model.UserInfo
-	u := model.UserInfo{UserId: 1001, Username: "zhangsan", Password: "123456", Address: "BeiJin", Mobile: "260 300052"}
+	u := model.UserInfo{UserId: "1001", Username: "xiaoning", Password: "123456", Address: "BeiJin", Mobile: "260 300052"}
 
 	return u
 }
