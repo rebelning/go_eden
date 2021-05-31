@@ -27,6 +27,7 @@ func Route(mvc *mvc.Application) {
 
 	///
 	loginDao := dao.NewLoginDao()
+
 	loginService := service.NewLoginService(loginDao)
 	login.Register(loginService)
 	login.Handle(new(controllers.LoginController))

@@ -4,6 +4,8 @@ import (
 	"go_eden/dao"
 	"go_eden/model"
 	"go_eden/web/middleware/jwts"
+
+	"github.com/kataras/golog"
 )
 
 type LoginService interface {
@@ -29,6 +31,8 @@ func (ls *loginService) GetLogin(username string, password string) model.Respons
 	if user.Password == password {
 		token := jwts.NewToken(username, user.UserId)
 		user.AccessToken = token
+		// username, _ = jwts.ParseToken(token)
+		golog.Debug("token=" + token)
 		return model.Response{ResCode: 200, Message: "login success", Data: user}
 
 	}

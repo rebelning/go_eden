@@ -27,7 +27,7 @@ func NewToken(username string, userId string) string {
 }
 
 /// parse token
-func parseToken(token interface{}) (username string, userId string) {
+func ParseToken(token interface{}) (username string, userId string) {
 	jwtInfo := token.(*jwt.Token)
 	usern := jwtInfo.Claims.(jwt.MapClaims)["username"].(string)
 	uid := jwtInfo.Claims.(jwt.MapClaims)["userId"].(string)
