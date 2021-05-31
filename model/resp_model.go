@@ -1,10 +1,11 @@
 package model
 
+///user info
 type UserInfo struct {
-	UserId      string
-	Username    string
-	Mobile      string
-	Address     string
+	UserId      string `json:"userId"`
+	Username    string `json:"username"`
+	Mobile      string `json:"mobile"`
+	Address     string `json:"address"`
 	Password    string `json:"-"`
-	AccessToken string
+	AccessToken string `json:"accessToken"`
 }
