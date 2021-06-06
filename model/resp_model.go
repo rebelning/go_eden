@@ -9,3 +9,9 @@ type UserInfo struct {
 	Password    string `json:"-"`
 	AccessToken string `json:"accessToken"`
 }
+
+type MenuInfo struct {
+	MenuId  string `json:"menuId"`
+	Section string `json:"section"`
+	Action  string `json:"action"`
+}

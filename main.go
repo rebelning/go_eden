@@ -62,7 +62,6 @@ func newApp() *iris.Application {
 	//控制器根路由路径"/"
 
 	//
-	mvc.Configure(app, configureMvc)
 
 	//logger
 	requestLogger := logger.New(logger.Config{
@@ -101,7 +100,7 @@ func newApp() *iris.Application {
 		timeout := 5 * time.Second
 		ctx, cancel := stdContext.WithTimeout(stdContext.Background(), timeout)
 		defer cancel()
-		//关闭所有主机
+		//
 		app.Shutdown(ctx)
 	})
 
@@ -111,15 +110,13 @@ func newApp() *iris.Application {
 		if err != nil {
 			// logs.Logger().Log.Error(err.Error())
 		}
-		// logs.Logger().Log.Error(fmt.Sprintf("path=%s", ctx.Path()),
-		// 	zap.String("params", string(body)))
 		golog.Error("OnAnyErrorCode=", string(body))
 		response := model.Response{ResCode: ctx.GetStatusCode(), Message: ctx.Path()}
 		ctx.ContentType("application/json;charset=UTF-8")
 		ctx.Writef(toJSON(response))
 
 	})
-
+	mvc.Configure(app, configureMvc)
 	return app
 }
 

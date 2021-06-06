@@ -4,7 +4,6 @@ import (
 	"go_eden/model"
 	"go_eden/service"
 
-	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/mvc"
 	"gopkg.in/go-playground/validator.v9"
@@ -18,8 +17,8 @@ var (
 ///login controller
 type LoginController struct {
 	BaseController
-	Ctx     iris.Context
-	Session *sessions.Session
+	Ctx iris.Context
+	//Session *sessions.Session
 	Service service.LoginService
 }
 
