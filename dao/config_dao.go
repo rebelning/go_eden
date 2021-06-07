@@ -32,6 +32,12 @@ func (c *configDao) GetMenuList() []model.MenuInfo {
 		Section: "message",
 		Action:  "/account/message",
 	}
+
+	m = model.MenuInfo{
+		MenuId:  "2003",
+		Section: "setting",
+		Action:  "/account/setting",
+	}
 	menuList = append(menuList, m)
 	return menuList
 }
