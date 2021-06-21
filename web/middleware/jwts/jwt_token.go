@@ -18,10 +18,10 @@ func NewToken(username string, userId string) string {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"username": username,
 		"userId":   userId,
-		"iss":      Iss,                                                      //issuer
-		"iat":      time.Now().Unix(),                                        //Issued At
-		"jti":      "9527",                                                   //JWT ID
-		"exp":      time.Now().Add(10 * time.Hour * time.Duration(1)).Unix(), //expiration time)
+		"iss":      Iss,                                                     //issuer
+		"iat":      time.Now().Unix(),                                       //Issued At
+		"jti":      "9527",                                                  //JWT ID
+		"exp":      time.Now().Add(1 * time.Hour * time.Duration(1)).Unix(), //expiration time)
 	})
 	tokenString, _ := token.SignedString([]byte(SecretKey))
 	return tokenString
